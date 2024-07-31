@@ -1,0 +1,46 @@
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/simplex/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.username|as_crispy_field }}
+            <br>
+            {{ form.email|as_crispy_field }}
+            <br>
+            {{ form.password1|as_crispy_field }}
+            {{ form.password2|as_crispy_field }}
+            <br>
+            <button type="submit">Submit</button>
+            <br>
+        </form>
+        <br>
+        <a href="{% url 'login' %}" class="login-link">Already have an account? Login here</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+                    if ("{{ message }}" === "Registration successful") {
+                        showToast();
+                    }
+        });
+
+        function showToast() {
+            var toast = document.getElementById("toast");
+            toast.className = "show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", "your registration is successful"); }, 30000);
+        }
+    </script>
+</body>
+</html>

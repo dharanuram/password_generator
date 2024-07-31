@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/simplex/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"></a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome, {{ user.username }}</h1>
+            <p class="lead">You are now logged in.</p>
+            <br>
+            <p>
+                A strong password is your first line of defense against cyber threats.
+            </p>
+            <p>
+                Click the button below to generate your secure password and take the first step towards enhanced online security.
+            </p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="{% url 'generate_password' %}" role="button">Generate Password</a>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
